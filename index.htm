@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://davidmz.github.io/apng-canvas/ -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>APNG test</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/apng-canvas.min.js"></script>
+    <script>
+        $(function () {
+            $("div.sticker_item").on("click", function () {
+                var $this = $(this);
+                
+                if ($this.hasClass('off') || $this.hasClass('on')) {
+                    event.preventDefault();
+                    return;
+                }
+
+                $this.addClass("on");
+                $("div.sticker_item:not(.on)").addClass("off");
+
+                APNG.ifNeeded().then(function () {
+                    APNG.animateContext($this.find(".sticker_static").attr("data-apng-src"),$this.find("canvas").get(0).getContext("2d"))
+                });
+                setTimeout(function () {
+                    $("div.sticker_item").removeClass("on").removeClass("off");
+                    APNG.ifNeeded().then(function () {
+                        APNG.releaseCanvas($this.find("canvas").get(0));
+                    });
+                }, $this.find(".sticker_static").attr("data-anim-time"));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="sticker_wrapper">
+        <div class="sticker_item" style=" width:324px; height:300px;">
+            <img class="sticker_static" style=" width:324px; height:300px;" src="images/sticker_animation_1.png" data-apng-src="images/sticker_animation_1@2x.png" data-anim-time="4000" alt="">
+            <canvas class="sticker_animation" width="324" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:368px; height:300px;">
+            <img class="sticker_static" style=" width:368px; height:300px;" src="images/sticker_animation_2.png" data-apng-src="images/sticker_animation_2@2x.png" data-anim-time="2000" alt="">
+            <canvas class="sticker_animation" width="368" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:324px; height:300px;">
+            <img class="sticker_static" style=" width:324px; height:300px;" src="images/sticker_animation_1.png" data-apng-src="images/sticker_animation_1@2x.png" data-anim-time="4000" alt="">
+            <canvas class="sticker_animation" width="324" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:368px; height:300px;">
+            <img class="sticker_static" style=" width:368px; height:300px;" src="images/sticker_animation_2.png" data-apng-src="images/sticker_animation_2@2x.png" data-anim-time="2000" alt="">
+            <canvas class="sticker_animation" width="368" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:324px; height:300px;">
+            <img class="sticker_static" style=" width:324px; height:300px;" src="images/sticker_animation_1.png" data-apng-src="images/sticker_animation_1@2x.png" data-anim-time="4000" alt="">
+            <canvas class="sticker_animation" width="324" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:368px; height:300px;">
+            <img class="sticker_static" style=" width:368px; height:300px;" src="images/sticker_animation_2.png" data-apng-src="images/sticker_animation_2@2x.png" data-anim-time="2000" alt="">
+            <canvas class="sticker_animation" width="368" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:324px; height:300px;">
+            <img class="sticker_static" style=" width:324px; height:300px;" src="images/sticker_animation_1.png" data-apng-src="images/sticker_animation_1@2x.png" data-anim-time="4000" alt="">
+            <canvas class="sticker_animation" width="324" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:368px; height:300px;">
+            <img class="sticker_static" style=" width:368px; height:300px;" src="images/sticker_animation_2.png" data-apng-src="images/sticker_animation_2@2x.png" data-anim-time="2000" alt="">
+            <canvas class="sticker_animation" width="368" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:324px; height:300px;">
+            <img class="sticker_static" style=" width:324px; height:300px;" src="images/sticker_animation_1.png" data-apng-src="images/sticker_animation_1@2x.png" data-anim-time="4000" alt="">
+            <canvas class="sticker_animation" width="324" height="300" />
+        </div>
+        <div class="sticker_item" style=" width:368px; height:300px;">
+            <img class="sticker_static" style=" width:368px; height:300px;" src="images/sticker_animation_2.png" data-apng-src="images/sticker_animation_2@2x.png" data-anim-time="2000" alt="">
+            <canvas class="sticker_animation" width="368" height="300" />
+        </div>
+    </div>
+</body>
+
+</html>
