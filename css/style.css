@@ -20,12 +20,10 @@
 
 .sticker_wrapper .sticker_item .sticker_static {
 	opacity: 1;
-	transition: opacity ease-in-out .3s;	
 }
 
-.sticker_wrapper .sticker_item .sticker_animation {
-	opacity: 0;
-	transition: opacity ease-in-out .3s;	
+.sticker_wrapper .sticker_item .sticker_animation_template {
+	display: none;
 }
 
 .sticker_wrapper .sticker_item.off {
@@ -34,8 +32,4 @@
 
 .sticker_wrapper .sticker_item.on .sticker_static {
 	opacity: 0;	
-}
-
-.sticker_wrapper .sticker_item.on .sticker_animation {
-	opacity: 1;
 }
